@@ -30,4 +30,3 @@ class VendingMachine(IVendingMachine):
 
     def get_vending_machine_state(self):
         return self.current_state
-

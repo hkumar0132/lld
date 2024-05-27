@@ -13,4 +13,3 @@ class Caretaker:
         if (len(self.mementos) > 1):
             self.mementos.pop()
             return self.mementos[-1]
-        

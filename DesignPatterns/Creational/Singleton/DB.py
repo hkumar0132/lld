@@ -1,12 +1,11 @@
 import threading
 
 '''
-    This method is not thread safe
+    This class method get_connection() is not thread safe
     If multiple threads creates an object at 
     the same time
     multiple objects will get created
 '''
-
 class DB:
 
     __instance = None

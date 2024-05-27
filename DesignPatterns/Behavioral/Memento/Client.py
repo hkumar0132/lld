@@ -31,4 +31,3 @@ class Client:
     #     originator.restore_memento(current_memento)
 
     print("HEIGHT: ", originator.height, originator.width)
-
