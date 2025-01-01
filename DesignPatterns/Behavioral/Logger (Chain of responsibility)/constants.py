@@ -1,0 +1,3 @@
+ERROR = 'ERROR'
+DEBUG = 'DEBUG'
+INFO = 'INFO'
