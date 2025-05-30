@@ -1,0 +1,257 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.1.1">
+  <diagram name="Page-1" id="1cF3gdVAvuk8VnD-NJku">
+    <mxGraphModel dx="3021" dy="2087" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-1" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;Functional Requirements - snake and ladder&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;0. Board initialization - decided on backend&lt;/div&gt;&lt;/div&gt;&lt;div&gt;1. Online multiplayer game&lt;/div&gt;&lt;div&gt;2. Random matching&amp;nbsp;&lt;/div&gt;&lt;div&gt;3. Configurable number of players&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- 5 max.&lt;/div&gt;&lt;div&gt;4. Play with bots&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Optional requirements -&amp;gt;&lt;/div&gt;&lt;div&gt;5. Analytics&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="-320" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-2" value="Non functional requirements -&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;1. Low latency&lt;/div&gt;&lt;div&gt;2. Scalable - multiple games at a time&lt;/div&gt;&lt;div&gt;3. Performant&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;4. Highly available&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;5. Consistency - player should see correct game state all the time&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="-90" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-4" value="Schema/Entities:&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;1. User&lt;/div&gt;&lt;div&gt;userId: UUID&lt;/div&gt;&lt;div&gt;name: varchar(100)&lt;/div&gt;&lt;div&gt;dob: timestamp&lt;/div&gt;&lt;div&gt;createdAt: timestamp&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;2. Game&lt;/div&gt;&lt;div&gt;gameId: UUID&lt;/div&gt;&lt;div&gt;startedByUserId: userId, FK&lt;/div&gt;&lt;div&gt;status: GameStatus (IN_PROGRESS, DRAW, WON)&lt;/div&gt;&lt;div&gt;createdAt: timestamp&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;3. Board&lt;/div&gt;&lt;div&gt;boardId: UUID&lt;/div&gt;&lt;div&gt;row: number&lt;/div&gt;&lt;div&gt;col: number&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;4. Snake&lt;/div&gt;&lt;div&gt;snakeId: UUID&lt;/div&gt;&lt;div&gt;startPosition: number&lt;/div&gt;&lt;div&gt;endPosition: number&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;boardId: FK, Board&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;5. Ladder&lt;/div&gt;&lt;div&gt;ladderId: UUID&lt;/div&gt;&lt;div&gt;&lt;div&gt;startPosition: number&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;endPosition: number&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;boardId: FK, Board&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;6. GamePlayer&lt;/div&gt;&lt;div&gt;gamePlayerId: UUID&lt;/div&gt;&lt;div&gt;userId: FK, User or Bot&lt;/div&gt;&lt;div&gt;userType: USER_TYPE(BOT, HUMAN)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;7. Bot&lt;/div&gt;&lt;div&gt;botId: UUID&lt;/div&gt;&lt;div&gt;mode: BotMode(EASY, MEDIUM, HARD)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;8. Moves&lt;/div&gt;&lt;div&gt;moveId: UUID&lt;/div&gt;&lt;div&gt;startPosition: number&lt;/div&gt;&lt;div&gt;endPosition:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;number&lt;/span&gt;&lt;/div&gt;&lt;div&gt;userId: FK, User or Bot&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="395" y="10" width="175" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-5" value="APIs -&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;POST /games/join&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;{&lt;/div&gt;&lt;div&gt;&quot;playerId&quot;: &quot;&quot;&lt;br&gt;&lt;/div&gt;&lt;div&gt;}&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;POST /v1/game&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;{&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&quot;numberOfPlayers&quot;:&amp;nbsp; number,&lt;/div&gt;&lt;div&gt;&quot;mode&quot;: &quot;Easy&quot; | &quot;Medium&quot; | &quot;Hard&quot;&lt;/div&gt;&lt;div&gt;}&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;GET /v1/game/{gameId}&lt;/div&gt;&lt;div&gt;{&lt;/div&gt;&lt;div&gt;&quot;gameStatus&quot;: &quot;&quot;,&lt;/div&gt;&lt;div&gt;&quot;moveHistory&quot;: [{}]&lt;/div&gt;&lt;div&gt;}&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;PUT /v1/game/{gameId}/move&lt;/div&gt;&lt;div&gt;{&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&quot;playerId&quot;: {&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&quot;startPosition&quot;: [],&lt;br&gt;&lt;/div&gt;&lt;div&gt;&quot;endPosition&quot;: []&lt;/div&gt;&lt;div&gt;}&lt;br&gt;&lt;/div&gt;&lt;div&gt;}&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Response -&amp;gt; Invalid move&lt;/div&gt;&lt;div&gt;{&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&#x9;&lt;/span&gt;&#x9;&lt;/span&gt;&quot;result&quot;: &quot;won&quot; | &quot;draw&quot;&lt;br&gt;&lt;/div&gt;&lt;div&gt;}&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="605" y="-150" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-6" value="Back of the envelope&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;100M DAU&lt;/div&gt;&lt;div&gt;writes -&amp;gt; 200M * 100 -&amp;gt; 20 * 1000 M / 86400 -&amp;gt; 200k rps&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;reads -&amp;gt; 1 : 1000 -&amp;gt; 200k / 1000 -&amp;gt; 0.2k -&amp;gt; 200 rps&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="135" width="190" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-7" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="600" y="570" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-8" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="600" y="710" width="40" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-9" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="605" y="830" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-10" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="720" as="sourcePoint" />
+            <mxPoint x="820" y="720" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qyiQjvgZ80hJXYwW26wY-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1130" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qyiQjvgZ80hJXYwW26wY-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-11" value="API Gateway&lt;div&gt;&amp;nbsp;- Auth, Authn&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="850" y="630" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qyiQjvgZ80hJXYwW26wY-13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1210" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-13" value="GAME SERVER" style="shape=ext;double=1;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1145" y="590" width="130" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.001;entryY=0.698;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="qyiQjvgZ80hJXYwW26wY-13" target="qyiQjvgZ80hJXYwW26wY-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-15" value="&lt;b&gt;WEBSOCKETS&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="610" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-18" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1290" y="670" as="sourcePoint" />
+            <mxPoint x="1350" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-19" value="&lt;b&gt;PARTITION KEY : gameId&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1690" y="620" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-24" value="&lt;b&gt;SQL - PostgreSQL, MySQL&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="1610" y="670" width="100" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-28" value="&lt;b&gt;SLAVES&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="1830" y="750" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-29" value="&lt;b&gt;SLAVES&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="1850" y="770" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-30" value="GAME SERVER" style="shape=ext;double=1;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1155" y="600" width="130" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-31" value="GAME SERVER" style="shape=ext;double=1;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1165" y="610" width="130" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qyiQjvgZ80hJXYwW26wY-36">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1240" y="840" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-36" value="&lt;b&gt;GAME SERVICE&lt;/b&gt;" style="shape=ext;double=1;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1175" y="620" width="130" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-37" value="game server 1 -&amp;gt; player1&lt;div&gt;game server 2 -&amp;gt; player2&lt;/div&gt;&lt;div&gt;game server 3 -&amp;gt; player3&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="840" y="840" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-38" value="&lt;div style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;6. GamePlayer&lt;/div&gt;&lt;div style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;gamePlayerId: UUID&lt;/div&gt;&lt;div style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;userId: FK, User or Bot&lt;/div&gt;&lt;div style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;userType: USER_TYPE(BOT, HUMAN)&lt;/div&gt;&lt;div style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;serverName: &quot;gameServer1&quot;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1580" y="875" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qyiQjvgZ80hJXYwW26wY-39">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1110" y="970" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-39" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillWeight=4;hachureGap=8;hachureAngle=45;fillColor=#1ba1e2;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="860" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-40" value="&lt;b&gt;PUB/SUB - KAFKA, SQS&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1305" y="875" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-43" value="game consumer 1" style="ellipse;shape=doubleEllipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1055" y="980" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-44" value="game consumer 2" style="ellipse;shape=doubleEllipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1225" y="980" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.391;entryY=-0.033;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="qyiQjvgZ80hJXYwW26wY-39" target="qyiQjvgZ80hJXYwW26wY-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.007;entryY=0.815;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="qyiQjvgZ80hJXYwW26wY-43" target="qyiQjvgZ80hJXYwW26wY-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-48" value="{&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&quot;move&quot;: {&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&quot;start&quot;: [0, 1],&lt;br&gt;&lt;/div&gt;&lt;div&gt;&quot;end&quot;: [1, 2]&lt;/div&gt;&lt;div&gt;},&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&quot;movedByUserId&quot;: &quot;&quot;,&lt;/div&gt;&lt;div&gt;&quot;playerServerDetails&quot;: [&lt;/div&gt;&lt;div&gt;{&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&quot;player2&quot;: &quot;game server2&quot;,&lt;br&gt;&lt;/div&gt;&lt;div&gt;&quot;player3&quot;: &quot;gamer server3&quot;&lt;/div&gt;&lt;div&gt;}&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;]&lt;/div&gt;&lt;div&gt;}&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="880" y="930" width="190" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-51" value="API Gateway&lt;div&gt;&amp;nbsp;- Auth, Authn&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="860" y="640" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-52" value="API Gateway&lt;div&gt;&amp;nbsp;- Auth, Authn&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="870" y="650" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-53" value="" style="html=1;whiteSpace=wrap;shape=isoCube2;backgroundOutline=1;isoAngle=15;" vertex="1" parent="1">
+          <mxGeometry x="1155" y="110" width="90" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-54" value="&lt;b&gt;userId1: timestamp&lt;/b&gt;&lt;div&gt;&lt;b&gt;userId2: timestamp&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;userId3L timestamp&lt;br&gt;&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="110" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-56" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Fetch using FIFO&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1245" y="170" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-57" value="&lt;b&gt;CACHE - Redis&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="80" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-58" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;game: {&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&quot;players&quot;: [{&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&quot;gameServer&quot;: &quot;chat server 1&quot;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;}]&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;}&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;Active game details&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1540" y="230" width="230" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qyiQjvgZ80hJXYwW26wY-59">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1210" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-59" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Matching service&lt;/font&gt;&lt;/b&gt;" style="shape=ext;double=1;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1151" y="340" width="118" height="118" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-62" value="" style="html=1;whiteSpace=wrap;shape=isoCube2;backgroundOutline=1;isoAngle=15;" vertex="1" parent="1">
+          <mxGeometry x="1430" y="280" width="90" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-63" value="&lt;b&gt;CACHE - Redis&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="250" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-64" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1" target="qyiQjvgZ80hJXYwW26wY-62">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1300" y="590" as="sourcePoint" />
+            <mxPoint x="1350" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-65" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Matching service&lt;/font&gt;&lt;/b&gt;" style="shape=ext;double=1;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1161" y="350" width="118" height="118" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-66" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Matching service&lt;/font&gt;&lt;/b&gt;" style="shape=ext;double=1;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1171" y="360" width="118" height="118" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-67" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Matching service&lt;/font&gt;&lt;/b&gt;" style="shape=ext;double=1;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1181" y="370" width="118" height="118" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-71" value="" style="html=1;whiteSpace=wrap;shape=isoCube2;backgroundOutline=1;isoAngle=15;" vertex="1" parent="1">
+          <mxGeometry x="1440" y="290" width="90" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-72" value="" style="html=1;whiteSpace=wrap;shape=isoCube2;backgroundOutline=1;isoAngle=15;" vertex="1" parent="1">
+          <mxGeometry x="1450" y="300" width="90" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-73" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Partition Key: gameId&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1540" y="380" width="210" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-74" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillWeight=4;hachureGap=8;hachureAngle=45;fillColor=#1ba1e2;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="1370" y="645" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qyiQjvgZ80hJXYwW26wY-75">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1650" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qyiQjvgZ80hJXYwW26wY-75">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2030" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-75" value="SQL consumer 1" style="ellipse;shape=doubleEllipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="560" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.3;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="qyiQjvgZ80hJXYwW26wY-74" target="qyiQjvgZ80hJXYwW26wY-75">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-78" value="&lt;b&gt;SQL - PostgreSQL, MySQL&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="1620" y="680" width="100" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-79" value="&lt;b&gt;SQL - PostgreSQL, MySQL&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="1630" y="690" width="100" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-80" value="&lt;b&gt;SQL - PostgreSQL, MySQL&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="1640" y="700" width="100" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qyiQjvgZ80hJXYwW26wY-81">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1820" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-81" value="&lt;b&gt;SQL - PostgreSQL, MySQL&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="1650" y="710" width="100" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-93" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qyiQjvgZ80hJXYwW26wY-85">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2030" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-85" value="SQL consumer 2" style="ellipse;shape=doubleEllipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="488" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-92" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qyiQjvgZ80hJXYwW26wY-87">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1860" y="685" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-87" value="Load Balancer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1980" y="665" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0;entryDx=0;entryDy=27.5;entryPerimeter=0;" edge="1" parent="1" source="qyiQjvgZ80hJXYwW26wY-87" target="qyiQjvgZ80hJXYwW26wY-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-89" value="&lt;b&gt;SLAVES&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="1860" y="780" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-90" value="&lt;b&gt;SLAVES&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="1750" y="660" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-91" value="&lt;b&gt;SLAVES&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="1780" y="670" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qyiQjvgZ80hJXYwW26wY-94" value="100M DAU -&amp;gt;&lt;br&gt;&lt;br&gt;Assuming 5 games per player&lt;br&gt;&lt;br&gt;500M games -&amp;gt; &lt;br&gt;&lt;br&gt;Writes per day -&amp;gt;&lt;br&gt;&lt;br&gt;(500M  * 100 moves per games ) / 86400 ~ 500K rps&lt;br&gt;&lt;br&gt;Now, assuming User table 100B, game table 50B and moves as 50 * 100B &lt;br&gt;~ &lt;br&gt;&lt;br&gt;6KB * 500M ~ 3000M KB ~ 3000GB ~ 3TB &lt;br&gt;&lt;br&gt;3 * 3650 ~ 10 PB for 10 year" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-70" y="238" width="420" height="240" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
